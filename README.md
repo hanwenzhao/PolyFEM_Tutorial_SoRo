@@ -56,7 +56,6 @@ default.json
     "lump_mass_matrix": true,
 
     "has_collision": true,
-    "dhat": 1e-3,
 
     "normalize_mesh": false,
 
@@ -85,7 +84,7 @@ scene_bowl.json
 
 ```json=
 {
-    "default_params": "input/json/defaults.json",
+    "default_params": "default.json",
     "problem_params": {
         "rhs": [0, 9.81, 0],
         "initial_velocity": [{
@@ -102,7 +101,7 @@ scene_bowl.json
     "friction_iterations": 1, 
 
     "meshes": [{
-        "mesh": "input/mesh/sphere1K.msh",
+        "mesh": "data/sphere1K.msh",
         "position": [0, 2, 0],
         "body_id": 1,
         "scale": 1.0
@@ -116,7 +115,7 @@ scene_bowl.json
     }],
 
     "obstacles": [{
-        "mesh": "input/mesh/Scene_Disk.msh",
+        "mesh": "data/Scene_Disk.msh",
         "position": [0, 0, 0],
         "scale": 0.1,
         "enabled": true
