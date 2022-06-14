@@ -17,7 +17,7 @@
 
     "meshes": [{
         "mesh": "data/sphere1K.msh",
-        "position": [0, 2, 0],
+        "position": [-4, 2, 0],
         "body_id": 1,
         "scale": 1.0
     }],
@@ -30,7 +30,7 @@
     }],
 
     "obstacles": [{
-        "mesh": "data/Scene_Disk.msh",
+        "mesh": "data/scene_bowl.msh",
         "position": [0, 0, 0],
         "scale": 0.1,
         "enabled": true
