@@ -1,0 +1,93 @@
+{
+    "geometry": [
+        {
+            "mesh": "../data/sphere.msh",
+            "transformation": {
+                "translation": [-0.4, 0.18, 0],
+                "scale": 0.1
+            },
+            "volume_selection": 1,
+            "advanced": {
+                "normalize_mesh": false
+            }
+        },
+        {
+            "mesh": "../data/scene_bowl.msh",
+            "is_obstacle": true,
+            "enabled": true,
+            "transformation": {
+                "translation": [0, 0, 0],
+                "scale": 0.01
+            }
+        }
+    ],
+    "initial_conditions": {
+        "velocity": [
+            {
+                "id": 1,
+                "value": [4, 0, 4]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 5e3,
+            "nu": 0.4,
+            "rho": 500,
+            "type": "NeoHookean"
+        }
+    ],
+    "time": {
+        "dt": 0.1,
+        "time_steps": 100
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001,
+        "epsv": 0.001,
+        "friction_coefficient": 0.4
+    },
+    "boundary_conditions": {
+        "rhs": [0, 9.81, 0]
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::PardisoLDLT"
+        },
+        "nonlinear": {
+            "line_search": {
+                "method": "backtracking"
+            },
+            "grad_norm": 0.001,
+            "use_grad_norm": false
+        },
+        "contact": {
+            "friction_iterations": 10,
+            "CCD": {
+                "broad_phase": "STQ"
+            }
+        }
+    },
+    "space": {
+        "advanced": {
+            "bc_method": "sample",
+            "quadrature_order": -1
+        }
+    },
+    "output": {
+        "json": "results.json",
+        "paraview": {
+            "file_name": "output.pvd",
+            "options": {
+                "material": true,
+                "body_ids": true
+            },
+            "vismesh_rel_area": 10000000
+        },
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": true
+        }
+    }
+}
