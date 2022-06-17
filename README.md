@@ -183,6 +183,16 @@ for i in range(timesteps):
     # interact with intermediate result
 ```
 
+## Visualize Simulation Results
+To visualize the simulation sequential results in `vtu` format, we can use [`ParaView`](https://www.paraview.org/), an open-source, multi-platform data analysis and visualization application.
+
+To view the results, please follow the the instruction below.
+![](https://i.imgur.com/ZQO3mUO.png)
+* Step 1: `File` - `Open`, select sequence group file step*.vtu or step*.vtm.
+* Step 2: Click `Apply` under the tab `Properties` located in the left side of the GUI.
+* Step 3: Click on `Wrap By Vector` to apply the displacement to the objects. This function can be found from the top menu bar.
+* Step 4: Click again `Apply` under the tab `Properties`.
+* Step 5: Now, the `Play` button can be used to view the time sequence results.
 
 
 ## Bouns: Blender Rendering
@@ -202,6 +212,12 @@ There are many different ways to colorize a mesh object. For example, coloring t
 
 ### Blender Rendering using Python
 In the example below, the python script control the rendering process. First, it loads colorized mesh files, and adds light and camera to the pre-calculated position and orientation (based on the vertice coordinates and surface normal). Then, render the image using vertex color.
+
+In this example, the camera is attched to one of the triangle in the surface mesh `OBJ`. And the camera is pointing at the center of the sphere, the rendering results are shown below.
+
+<p float="left">
+<img src="https://github.com/hanwenzhao/PolyFEM_Tutorial_SoRo/blob/main/data/animation.gif?raw=true" width="30%" />
+</p>
 
 blender_render.py
 ```python=
